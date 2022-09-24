@@ -1,0 +1,12 @@
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.15rem;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 1.15rem;
+}
