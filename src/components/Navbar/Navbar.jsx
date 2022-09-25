@@ -14,8 +14,10 @@ import MenuItem from "@mui/material/MenuItem";
 import { UserContext } from "../../context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 
-const pages = ["Courses", "Leaderboard"];
-// const settings = ["Dashboard", "Logout"];
+const pages = [
+  { name: "Courses", url: "/courses" },
+  { name: "Leaderboard", url: "/leaderboard" },
+];
 const settings = [{ name: "Dashboard", url: "/dashboard" }];
 
 const ResponsiveAppBar = () => {
@@ -97,9 +99,11 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, i) => (
+                <MenuItem key={i} onClick={handleCloseNavMenu}>
+                  <Link to={page.url}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,14 +127,16 @@ const ResponsiveAppBar = () => {
             SITENAME
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+            {pages.map((page, index) => (
+              <Link to={page.url}>
+                <Button
+                  key={index}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
