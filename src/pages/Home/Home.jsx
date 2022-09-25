@@ -3,7 +3,7 @@ import { UserContext } from "../../context/UserContext";
 import { userDetails } from "../../media/test_data";
 
 const Home = () => {
-  let { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const createTempUser = () => {
     localStorage.setItem("user", JSON.stringify(userDetails));
@@ -23,6 +23,8 @@ const Home = () => {
       <button onClick={delUser}>del user</button>
       {currentUser ? <h1>{currentUser.username} exists</h1> : <h2>no user</h2>}
       <a href="/courses">go to courses</a>
+      <br />
+      <a href="/private">go to private</a>
     </div>
   );
 };

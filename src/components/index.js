@@ -1,6 +1,6 @@
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
-import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Private from "./Private/Private";
 import Loading from "./Loading/Loading";
 
-export { Navbar, Footer, ProtectedRoute, Loading };
+export { Navbar, Footer, Private, Loading };

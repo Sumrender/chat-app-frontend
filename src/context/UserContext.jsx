@@ -7,8 +7,7 @@ export const UserContext = createContext({
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const value = { currentUser, setCurrentUser, loading, setLoading };
+  const value = { currentUser, setCurrentUser };
 
   useEffect(() => {
     // alert("context useEffect called");
