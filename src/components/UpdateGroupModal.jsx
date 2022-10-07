@@ -28,7 +28,7 @@ const GroupChatModal = ({ open, setOpen, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/rename`,
+        process.env.REACT_APP_ENDPOINT + `/api/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -57,7 +57,10 @@ const GroupChatModal = ({ open, setOpen, fetchMessages }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        process.env.REACT_APP_ENDPOINT + `/api/user?search=${search}`,
+        config
+      );
       console.log(
         "🚀 ~ file: UpdateGroupModal.jsx ~ line 59 ~ handleSearch ~ data",
         data
@@ -85,7 +88,7 @@ const GroupChatModal = ({ open, setOpen, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/groupremove`,
+        process.env.REACT_APP_ENDPOINT + `/api/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: delUser._id,
@@ -120,7 +123,7 @@ const GroupChatModal = ({ open, setOpen, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/groupadd`,
+        process.env.REACT_APP_ENDPOINT + `/api/chat/groupadd`,
         {
           chatId,
           userId,

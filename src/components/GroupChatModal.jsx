@@ -23,7 +23,10 @@ const GroupChatModal = ({ open, setOpen }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        process.env.REACT_APP_ENDPOINT + `/api/user?search=${search}`,
+        config
+      );
       console.log(
         "🚀 ~ file: GroupChatModal.jsx ~ line 25 ~ handleSearch ~ data",
         data
@@ -62,7 +65,7 @@ const GroupChatModal = ({ open, setOpen }) => {
         },
       };
       const { data } = await axios.post(
-        `/api/chat/group`,
+        process.env.REACT_APP_ENDPOINT+`/api/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
@@ -102,7 +105,10 @@ const GroupChatModal = ({ open, setOpen }) => {
           border: "solid 3px blue",
         }}
       >
-        <div className="heading" style={{ display: "flex", justifyContent:"space-between" }}>
+        <div
+          className="heading"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <p>Create Group Chat</p>
           <button onClick={() => setOpen(false)}>Close</button>
         </div>
